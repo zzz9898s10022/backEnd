@@ -17,5 +17,4 @@ class FrontController extends Controller
         return view('front/news',compact('news_data'));
     }
 
-    
 }
