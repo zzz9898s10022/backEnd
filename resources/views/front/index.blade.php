@@ -4,7 +4,7 @@
 @section('content')
 
 
-<section class="engine"><a href="https://mobirise.info/g">build a website for free</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
+<section class="engine"><a href="">build a website for free</a></section><section class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
     <div class="container align-center">
         <div class="row justify-content-md-center">
             <div class="mbr-white col-md-10">
@@ -53,9 +53,6 @@
 </section>
 
 <section class="mbr-section article content14 cid-rRF19x19Q9" id="content14-5">
-
-
-
     <div class="container">
         <div class="media-container-row">
             <div class="row col-12 col-md-12">
