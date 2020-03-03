@@ -34,26 +34,23 @@
                         <li class="nav-item">
                                 <a class="nav-link" href="/home/news">最新消息</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home/news">產品介紹</a>
+                        </li>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 下拉選單 <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="">
                                         下拉選單1
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="">
                                         下拉選單2
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a class="dropdown-item" href="">
+                                        下拉選單3
                                     </a>
 
 
