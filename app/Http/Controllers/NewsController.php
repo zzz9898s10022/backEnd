@@ -27,10 +27,10 @@ class NewsController extends Controller
         News::create($news_data);
         $file_name = $request->file('img')->store('', 'public');
         $requestData['img'] = $file_name;
-        News::create($news_data);
 
 
         return redirect('/home/news');
+        //重新導向/home/news
     }
 
 
