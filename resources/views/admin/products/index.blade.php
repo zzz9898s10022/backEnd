@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/news/create" class="btn btn-success">新增最新消息</a>
+    <a href="/home/products/create" class="btn btn-success">新增最新商品</a>
     <hr>
 
     <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -20,17 +20,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($all_news as $item)
+            @foreach($all_products as $item)
             <tr>
-                <td><img width="120" src="{{asset('/storage/'.$item->img)}}" alt=""></td>
+                <td>{{$item->img}}</td>
                 <td>{{$item->sort}}</td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->content}}</td>
                 <td>
-                    <a href="/home/news/edit/{{$item->id}}" class="btn btn-success">修改</a>
+                    <a href="/home/products/edit/{{$item->id}}" class="btn btn-success">修改</a>
                     <button class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
 
-                    <form id="delete-form-{{$item->id}}" action="/home/news/delete/{{$item->id}}" method="POST"
+                    <form id="delete-form-{{$item->id}}" action="/home/products/delete/{{$item->id}}" method="POST"
                         style="display: none;">
                         @csrf
                     </form>
@@ -49,7 +49,7 @@
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-    $('#example').DataTable( {
+        $('#example').DataTable( {
         "order": [1]
         });
     } );
