@@ -8,7 +8,6 @@
 <div class="container">
     <a href="/home/news/create" class="btn btn-success">新增最新消息</a>
     <hr>
-
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -22,7 +21,9 @@
         <tbody>
             @foreach($all_news as $item)
             <tr>
-                <td><img width="120" src="{{asset('/storage/'.$item->img)}}" alt=""></td>
+                <td>
+                    <img width="120" src="{{asset($item->img)}}" alt="">
+                </td>
                 <td>{{$item->sort}}</td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->content}}</td>
@@ -50,7 +51,7 @@
 <script>
     $(document).ready(function() {
     $('#example').DataTable( {
-        "order": [1]
+        "order": [[1,'desc']]
         });
     } );
 
@@ -59,7 +60,7 @@
             var r=confirm("Press a button!");
             if (r==true)
             {
-                document.getElementById('delete-form-'+id).submit();
+                document.getElementById(`delete-form-${id}`).submit();
             }
         }
 

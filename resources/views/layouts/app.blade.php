@@ -104,10 +104,10 @@
         </main>
     </div>
 
-
+    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-     @yield("js")
-     <!-- Scripts -->
+    @yield("js")
+
 </body>
 
 </html>
