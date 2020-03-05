@@ -15,14 +15,15 @@
                 <th>sort</th>
                 <th>title</th>
                 <th>content</th>
-                <th width="140"></th>
+                <th width="100"></th>
             </tr>
         </thead>
         <tbody>
             @foreach($all_news as $item)
             <tr>
                 <td>
-                    <img width="120" src="{{asset($item->img)}}" alt="">
+                    {{-- <img width="120" src="{{asset($item->img)}}" alt=""> --}}
+                    <img width="120" src="{{$item->img}}" alt="">
                 </td>
                 <td>{{$item->sort}}</td>
                 <td>{{$item->title}}</td>
@@ -57,7 +58,7 @@
 
         function show_confirm(id)
         {
-            var r=confirm("Press a button!");
+            var r=confirm("確定刪除?");
             if (r==true)
             {
                 document.getElementById(`delete-form-${id}`).submit();

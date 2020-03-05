@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\News;
+use App\News_imgs;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -27,9 +28,25 @@ class NewsController extends Controller
             $path = $this->fileUpload($file, 'news');
             $news_data['img'] = $path;
         }
-        News::create($news_data);
+        $new_news = News::create($news_data);
+        // News::create($news_data);
         // $file_name = $request->file('img')->store('', 'public');
         // $requestData['img'] = $file_name;
+        //create 多張圖片
+        if($request->hasFile('news_imgs'))
+        {
+            $files = $request->file('news_imgs');
+            foreach ($files as $file) {
+                //上傳圖片
+                $path = $this->fileUpload($file,'news');
+
+                //建立News多張圖片的資料
+                $news_imgs = new News_imgs;
+                $news_imgs->news_id = $new_news->id;
+                $news_imgs->img = $path;
+                $news_imgs->save();
+            }
+        }
 
 
         return redirect('/home/news');
@@ -39,7 +56,8 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        $news = News::find($id);
+        // $news = News::find($id);
+        $news = News::with("news_imgs")->find($id);
         return view('admin/news/edit', compact('news'));
     }
     public function update(Request $request, $id)

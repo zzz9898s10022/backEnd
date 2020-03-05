@@ -7,8 +7,14 @@
     <form method="POST" action="/home/news/store" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="img">IMG：</label>
+            <label for="img">主要圖片上傳：</label>
             <input type="file" class="form-control" id="img" name="img" required>
+        </div>
+        <div class="form-group">
+            <label for="img">多張圖片上傳：</label>
+            <input type="file" class="form-control" id="news_imgs" name="news_imgs[]" required multiple>
+            {{--1.多張圖片的name後面要加[]因為是要從陣列中取出單筆資料
+                2.因為是複數，要再增加一個multiple的屬性 --}}
         </div>
         <div class="form-group">
             <label for="title">Title：</label>
