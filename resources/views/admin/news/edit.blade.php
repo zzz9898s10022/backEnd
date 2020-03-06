@@ -33,8 +33,8 @@
             <div class="col-2">
                 <div class="news_img_card" data-newsimgid="{{$item->id}}">
                     <button type="button" class="btn btn-danger" data-newsimgid="{{$item->id}}">X</button>
-                    <img class="img-fluid" src="{{$item->img}}" alt="">
-                    <input class="form-control" type="text" value="{{$item->sort}}">
+                    <img class="img-fluid" src="{{$item->img_url}}" alt="">
+                <input class="form-control" type="text" value="{{$item->sort}}" onchange="ajax_post_sort(this,{{$item->id}})">
                 </div>
             </div>
             @endforeach
@@ -42,7 +42,8 @@
 
         <div class="form-group">
             <label for="title">新增多張圖片組(建議圖片尺寸寬400px x 高200px)</label>
-            <input type="file" class="form-control" id="news_imgs" name="news_imgs[]" required multiple>
+            <input type="file" class="form-control" id="news_imgs" name="news_imgs[]" multiple>
+            {{-- 如果增加require屬性，則每次修改時一定要添加東西才行 --}}
         </div>
 
         <div class="form-group">
@@ -85,6 +86,24 @@
             }
         });
     });
+    function ajax_post_sort(element,img_id){
+        var img_id = img_id;
+        var sort_value = element.value;
+        // console.log(img_id);
+        // console.log(sort_value);
+        $.ajax({
+            url: "/home/ajax_post_sort",
+            method: 'post',
+            data: {
+                id: img_id,
+                sort: sort_value
+            },
+            success: function(result){
+                console.log(result);
+
+            }
+        });
+    }
 
 </script>
 @endsection

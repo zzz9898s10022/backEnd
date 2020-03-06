@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  */
-class news_imgs extends Model
+class NewsImgs extends Model
 {
     protected $table = 'news_imgs';
     protected $keyType = 'integer';
