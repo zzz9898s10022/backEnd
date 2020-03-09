@@ -6,28 +6,25 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/news/create" class="btn btn-success">新增最新消息</a>
+    <a href="/home/productTypes/create" class="btn btn-success">新增商品類型</a>
     <hr>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>img</th>
+                <th>type</th>
                 <th>sort</th>
-                <th>title</th>
-                <th>content</th>
                 <th width="100"></th>
             </tr>
         </thead>
         <tbody>
-            @foreach($all_news as $item)
+            @foreach( $items as $item)
             <tr>
                 <td>
                     {{-- <img width="120" src="{{asset($item->img)}}" alt=""> --}}
                     <img width="120" src="{{$item->img}}" alt="">
                 </td>
+                <td>{{$item->type}}</td>
                 <td>{{$item->sort}}</td>
-                <td>{{$item->title}}</td>
-                <td>{!!$item->content!!}</td>
                 {{-- {!! !!}可以讓程式碼自動轉換成css --}}
                 <td>
                     <a href="/home/news/edit/{{$item->id}}" class="btn btn-success">修改</a>

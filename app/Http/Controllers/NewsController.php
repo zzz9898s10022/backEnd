@@ -153,26 +153,26 @@ class NewsController extends Controller
     }
 
 
-public function ajax_delete_news_imgs(Request $request)
-{
-    $newsimgid = $request->newsimgid;
-    $item = NewsImgs::find($newsimgid);
-    $old_image = $item->img_url;
-    if (file_exists(public_path() . $old_image)) {
-        File::delete(public_path() . $old_image);
+    public function ajax_delete_news_imgs(Request $request)
+    {
+        $newsimgid = $request->newsimgid;
+        $item = NewsImgs::find($newsimgid);
+        $old_image = $item->img_url;
+        if (file_exists(public_path() . $old_image)) {
+            File::delete(public_path() . $old_image);
+        }
+        $item->delete();
+
+        return "";
     }
-    $item->delete();
+    public function ajax_post_sort(Request $request)
+    {
+        $news_img_id = $request->id;
+        $sort = $request->sort;
+        $img = NewsImgs::find($news_img_id);
+        $img->sort = $sort;
+        $img->save();
 
-    return "";
-}
-public function ajax_post_sort(Request $request)
-{
-    $news_img_id = $request->id;
-    $sort = $request->sort;
-    $img = NewsImgs::find($news_img_id);
-    $img->sort = $sort;
-    $img->save();
-
-    return "yeah";
-}
+        return "";
+    }
 }

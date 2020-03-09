@@ -111,7 +111,7 @@
             minHeight:100,
         });
     });
-    // $('#content' *)
+    $('#content' *)
 </script>
 @endsection
 

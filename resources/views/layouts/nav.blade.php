@@ -66,7 +66,14 @@
                             最新消息
                         </a>
                     </li>
-
+                </ul>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="/products">
+                            <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
+                            產品類型
+                        </a>
+                    </li>
                 </ul>
                 <div class="navbar-buttons mbr-section-btn">
                     <a class="btn btn-sm btn-primary display-4" href="/">

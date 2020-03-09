@@ -17,7 +17,7 @@ style="padding-top:100px">
                             {{$item->title}}
                         </h4>
                         <p class="mbr-text mbr-fonts-style display-7">
-                            {{$item->content}}
+                            {!! $item->content!!}
                         </p>
                     </div>
                     <div class="mbr-section-btn text-center">

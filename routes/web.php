@@ -3,8 +3,10 @@
 Route::get('/', 'FrontController@index');
 //首頁
 Route::get('/news', 'FrontController@news'); //list page
-
 Route::get('/news/{id}', 'FrontController@news_detail'); //Content Page
+
+Route::get('/products', 'FrontController@products');
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'home'], function () {
@@ -26,6 +28,20 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'home'], function () {
     //刪除消息
     Route::post('ajax_delete_news_imgs', 'NewsController@ajax_delete_news_imgs');
     Route::post('ajax_post_sort', 'NewsController@ajax_post_sort');
+
+    /////////////////////////產品類型區/////////////////////////////
+    Route::get('/productTypes', 'ProductTypesController@index');
+
+    Route::get('productTypes/create', 'ProductTypesController@create');
+    Route::post('productTypes/store', 'ProductTypesController@store');
+    //新增產品&儲存
+    
+    Route::get('productTypes/edit/{id}', 'ProductTypesController@edit');
+    Route::post('productTypes/update/{id}', 'ProductTypesController@update');
+    //修改產品&更新
+    Route::post('productTypes/delete/{id}', 'ProductTypesController@delete');
+    //刪除產品
+
     /////////////////////////產品區/////////////////////////////
     Route::get('/products', 'ProductsController@index');
 

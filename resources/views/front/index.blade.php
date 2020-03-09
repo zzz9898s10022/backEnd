@@ -20,8 +20,8 @@
                     themes.
                 </p>
                 <div class="mbr-section-btn">
-                    <a class="btn btn-md btn-secondary display-4" href="/">LEARN MORE</a>
-                    <a class="btn btn-md btn-white-outline display-4" href="/">LIVE DEMO</a>
+                    <a class="btn btn-md btn-secondary display-4" href="/news">最新消息</a>
+                    <a class="btn btn-md btn-white-outline display-4" href="/products">產品類型</a>
                 </div>
             </div>
         </div>

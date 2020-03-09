@@ -26,7 +26,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -38,15 +38,15 @@
                             <a class="nav-link" href="/home/news">最新消息</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/home/products">產品介紹</a>
+                            <a class="nav-link" href="/home/productTypes">產品類型</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                下拉選單 <span class="caret"></span>
+                                data-toggle="dropdown">
+                                產品介紹 <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right" >
                                 <a class="dropdown-item" href="">
                                     下拉選單1
                                 </a>
@@ -76,7 +76,7 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                data-toggle="dropdown" aria-haspopup="true"  v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 

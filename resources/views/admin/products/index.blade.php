@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/products/create" class="btn btn-success">新增最新商品</a>
+    <a href="/home/products/create" class="btn btn-success">新增產品類型</a>
     <hr>
 
     <table id="example" class="table table-striped table-bordered" style="width:100%">
