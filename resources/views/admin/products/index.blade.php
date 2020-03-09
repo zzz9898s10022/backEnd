@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/products/create" class="btn btn-success">新增產品類型</a>
+    <a href="/home/products/create" class="btn btn-success">新增產品種類</a>
     <hr>
 
     <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -22,7 +22,7 @@
         <tbody>
             @foreach($all_products as $item)
             <tr>
-                <td>{{$item->img}}</td>
+                <td><img width="120" src="{{$item->img}}" alt=""></td>
                 <td>{{$item->sort}}</td>
                 <td>{{$item->title}}</td>
                 <td>{{$item->content}}</td>

@@ -25,18 +25,17 @@ class ProductTypesController extends Controller
 
 
         $items = ProductTypes::create($items);
-        //create 多張圖片
 
 
         return redirect('/home/productTypes');
-        //重新導向/home/news
+        //重新導向
     }
 
     public function edit($id)
     {
         // $news = News::find($id);
-        $news = ProductTypes::with("news_imgs")->find($id);
-        return view('admin/productTypes/edit', compact('news'));
+        $items = ProductTypes::find($id);
+        return view('admin/productTypes/edit', compact('items'));
     }
 
     public function update(Request $request, $id)

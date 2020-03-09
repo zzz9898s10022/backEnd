@@ -38,20 +38,20 @@
                             <a class="nav-link" href="/home/news">最新消息</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/home/productTypes">產品類型</a>
+                            <a class="nav-link" href="/home/">新增欄位</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown">
-                                產品介紹 <span class="caret"></span>
+                                產品維護管理 <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" >
-                                <a class="dropdown-item" href="">
-                                    下拉選單1
+                                <a class="dropdown-item" href="/home/productTypes">
+                                    產品類型
                                 </a>
-                                <a class="dropdown-item" href="">
-                                    下拉選單2
+                                <a class="dropdown-item" href="/home/products">
+                                    產品介紹
                                 </a>
                                 <a class="dropdown-item" href="">
                                     下拉選單3

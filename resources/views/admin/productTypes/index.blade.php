@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/productTypes/create" class="btn btn-success">新增商品類型</a>
+    <a href="/home/productTypes/create" class="btn btn-success">新增產品類型</a>
     <hr>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -19,18 +19,14 @@
         <tbody>
             @foreach( $items as $item)
             <tr>
-                <td>
-                    {{-- <img width="120" src="{{asset($item->img)}}" alt=""> --}}
-                    <img width="120" src="{{$item->img}}" alt="">
-                </td>
                 <td>{{$item->type}}</td>
                 <td>{{$item->sort}}</td>
                 {{-- {!! !!}可以讓程式碼自動轉換成css --}}
                 <td>
-                    <a href="/home/news/edit/{{$item->id}}" class="btn btn-success">修改</a>
+                    <a href="/home/productTypes/edit/{{$item->id}}" class="btn btn-success">修改</a>
                     <button class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
 
-                    <form id="delete-form-{{$item->id}}" action="/home/news/delete/{{$item->id}}" method="POST"
+                    <form id="delete-form-{{$item->id}}" action="/home/productTypes/delete/{{$item->id}}" method="POST"
                         style="display: none;">
                         @csrf
                     </form>
