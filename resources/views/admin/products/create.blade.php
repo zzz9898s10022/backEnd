@@ -7,6 +7,10 @@
 <div class="container">
     <form method="POST" action="/home/products/store" enctype="multipart/form-data">
         @csrf
+        
+
+
+
         <div class="form-group">
             <label for="img">主要圖片上傳：</label>
             <input type="file" class="form-control" id="img" name="img" required>
@@ -23,7 +27,7 @@
         </div>
         <div class="form-group">
             <label for="content">輸入內文：</label>
-            <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+            <textarea type="text" class="form-control" id="content" name="content"></textarea>
 
         </div>
         <button type="submit" class="btn btn-primary">送出</button>

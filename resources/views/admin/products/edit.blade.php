@@ -65,33 +65,6 @@
     </form>
 </div>
 @endsection
-{{-- @section('content')
-<div class="container">
-    <h1>編輯消息</h1>
-    <form method="POST" action="/home/products/update/{{$products->id}}">
-        @csrf
-        <div class="form-group">
-            <label for="img">主要圖片</label>
-            <input type="file" class="form-control" id="img" name="img" value="{{$products->img}}">
-        </div>
-        <div class="form-group">
-            <label for="sort">Sort：</label>
-            <input type="text" class="form-control" id="sort" name="sort">
-        </div>
-        <div class="form-group">
-            <label for="title">Title：</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{$products->title}}">
-        </div>
-        <div class="form-group">
-            <label for="content">請輸入說明內文：</label>
-            <textarea class="form-control" id="content" name="content" cols="30" rows="10">{{$products->content}}</textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">送出</button>
-
-    </form>
-</div>
-@endsection --}}
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>

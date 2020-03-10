@@ -14,7 +14,7 @@ class AddProductsTypesToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('products_types')->after('img')->default(0);
+            $table->string('products_types')->after('id')->default(0);
         });
     }
 

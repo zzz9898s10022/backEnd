@@ -8,12 +8,12 @@ class Products extends Model
 {
     protected $table = 'products';
     protected $fillable = [
-        'img','sort','title','content'
+        'products_types','img','title','content','sort'
     ];
 
     public function products_imgs()
     {
-        return $this->belongsTo('App\ProductsImgs')->orderby('sort','desc');
+        return $this->hasMany('App\ProductsImgs')->orderby('sort','desc');
     }
     //回傳app\NewsImgs
 
