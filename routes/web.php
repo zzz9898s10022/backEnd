@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'home'], function () {
     Route::get('productTypes/create', 'ProductTypesController@create');
     Route::post('productTypes/store', 'ProductTypesController@store');
     //新增產品&儲存
-    
+
     Route::get('productTypes/edit/{id}', 'ProductTypesController@edit');
     Route::post('productTypes/update/{id}', 'ProductTypesController@update');
     //修改產品&更新

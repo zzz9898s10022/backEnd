@@ -1,4 +1,7 @@
 @extends('layouts/app')
+@section('css')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+@endsection
 
 @section('content')
 <div class="container">
@@ -10,7 +13,7 @@
         </div>
         <div class="form-group">
             <label for="img">多張圖片上傳：</label>
-            <input type="file" class="form-control" id="news_imgs" name="news_imgs[]" required multiple>
+            <input type="file" class="form-control" id="img" name="products_imgs[]" required multiple>
             {{--1.多張圖片的name後面要加[]因為是要從陣列中取出單筆資料
                 2.因為是複數，要再增加一個multiple的屬性 --}}
         </div>
@@ -27,6 +30,10 @@
     </form>
 </div>
 @endsection
+
+@section('js')
+
+
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
 
 

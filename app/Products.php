@@ -10,4 +10,11 @@ class Products extends Model
     protected $fillable = [
         'img','sort','title','content'
     ];
+
+    public function products_imgs()
+    {
+        return $this->belongsTo('App\ProductsImgs')->orderby('sort','desc');
+    }
+    //回傳app\NewsImgs
+
 }

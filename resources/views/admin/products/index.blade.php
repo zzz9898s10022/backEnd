@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <a href="/home/products/create" class="btn btn-success">新增產品種類</a>
+    <a href="/home/products/create" class="btn btn-success">新增產品項目</a>
     <hr>
 
     <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -25,7 +25,7 @@
                 <td><img width="120" src="{{$item->img}}" alt=""></td>
                 <td>{{$item->sort}}</td>
                 <td>{{$item->title}}</td>
-                <td>{{$item->content}}</td>
+                <td>{!!$item->content!!}</td>
                 <td>
                     <a href="/home/products/edit/{{$item->id}}" class="btn btn-success">修改</a>
                     <button class="btn btn-danger" onclick="show_confirm({{$item->id}})">刪除</button>
@@ -50,13 +50,13 @@
 <script>
     $(document).ready(function() {
         $('#example').DataTable( {
-        "order": [1]
+        "order": [1,'desc']
         });
     } );
 
         function show_confirm(id)
         {
-            var r=confirm("Press a button!");
+            var r=confirm("確定刪除?");
             if (r==true)
             {
                 document.getElementById('delete-form-'+id).submit();
