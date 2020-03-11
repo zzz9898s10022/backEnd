@@ -22,16 +22,13 @@
     <link rel="stylesheet" href="{{asset('assets/gallery/style.css')}}">
     <link rel="preload" as="style" href="{{asset('assets/mobirise/css/mbr-additional.css')}}">
     <link rel="stylesheet" href="{{asset('assets/mobirise/css/mbr-additional.css')}}" type="text/css">
-
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
 
 
 </head>
 
 <body>
     <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
-
-
-
         <nav
             class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -72,6 +69,14 @@
                         <a class="nav-link link text-white display-4" href="/products">
                             <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
                             產品類型
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-white display-4" href="/contact_us">
+                            <span class="mbri-home mbr-iconfont mbr-iconfont-btn"></span>
+                            聯絡我們
                         </a>
                     </li>
                 </ul>
@@ -197,6 +202,7 @@
     <script src="{{asset('assets/gallery/player.min.js')}}"></script>
     <script src="{{asset('assets/gallery/script.js')}}"></script>
     <script src="{{asset('assets/slidervideo/script.js')}}"></script>
+    <script src="{{asset('assets/formoid/formoid.min.js')}}"></script>
 
 
 </body>

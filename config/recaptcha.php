@@ -19,7 +19,8 @@ return [
      * get site key @ www.google.com/recaptcha/admin
      *
      */
-    'api_site_key'                 => env('RECAPTCHA_SITE_KEY', ''),
+    'api_site_key'                 => env('RECAPTCHA_SITE_KEY', '6LcnIeAUAAAAAKH6KDb1gHRHDU1nD8IIQSimTwcW'),
+                                        // 前面是我們給的值，逗點後面是預設值
 
     /**
      *
@@ -27,7 +28,7 @@ return [
      * get secret key @ www.google.com/recaptcha/admin
      *
      */
-    'api_secret_key'               => env('RECAPTCHA_SECRET_KEY', ''),
+    'api_secret_key'               => env('RECAPTCHA_SECRET_KEY', '6LcnIeAUAAAAAJHHT0oP7plMLObCQR2GbCTqrp7b'),
 
     /**
      *
@@ -52,7 +53,7 @@ return [
      * IP addresses for which validation will be skipped
      *
      */
-    'skip_ip'                      => ['127.0.0.1'],
+    'skip_ip'                      => [],
 
     /**
      *

@@ -38,16 +38,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/home/news">最新消息</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home/">新增欄位</a>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown">
                                 產品維護管理 <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" >
+                            <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="/home/productTypes">
                                     產品類型
                                 </a>
@@ -57,9 +55,11 @@
                                 <a class="dropdown-item" href="">
                                     下拉選單3
                                 </a>
-
-
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home/">聯絡我們</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -77,7 +77,7 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true"  v-pre>
+                                data-toggle="dropdown" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 

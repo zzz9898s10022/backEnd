@@ -7,7 +7,15 @@
 <div class="container">
     <form method="POST" action="/home/products/store" enctype="multipart/form-data">
         @csrf
-        
+        <div class="form-group col-md-4">
+            <label for="products_types">State</label>
+            <select id="products_types" class="form-control" name="products_types">
+                @foreach ($all_products as $item)
+                <option value="{{$item->type}}">{{$item->type}}</option>
+                @endforeach
+
+            </select>
+        </div>
 
 
 

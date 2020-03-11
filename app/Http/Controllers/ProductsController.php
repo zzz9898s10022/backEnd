@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\ProductTypes;
 use App\Products;
 use App\ProductsImgs;
 use Illuminate\Http\Request;
@@ -18,7 +18,8 @@ class ProductsController extends Controller
 
     public function create()
     {
-        return view('admin/products/create');
+        $all_products = ProductTypes::all();
+        return view('admin/products/create', compact('all_products'));
     }
 
     public function store(Request $request)
@@ -55,13 +56,48 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        // $products = Products::find($id);
-        $products = Products::with("products_imgs")->find($id);
-        return view('admin/products/edit', compact('products'));
+        $products = Products::find($id);
+        $all_products = ProductTypes::all();
+        // $products = Products::with("products_imgs")->find($id);
+        return view('admin/products/edit', compact('type,products'));
+
     }
     public function update(Request $request, $id)
     {
-        Products::find($id)->update($request->all());
+        // Products::find($id)->update($request->all());
+        // return redirect('/home/products');
+        $request_data = $request->all();
+
+        $item = Products::find($id);
+
+        //if有上傳新圖片
+        if ($request->hasFile('img')) {
+            //舊圖片刪除
+            $old_image = $item->img;
+            File::delete(public_path() . $old_image);
+
+            //上傳新圖片
+            $file = $request->file('img');
+            $path = $this->fileUpload($file, 'products');
+            $request_data['img'] = $path;
+        }
+
+        if ($request->hasFile('products_imgs')) {
+            $files = $request->file('products_imgs');
+            foreach ($files as $file) {
+                //上傳圖片
+                $path = $this->fileUpload($file, 'news');
+
+                //建立NewsProducts的資料
+                $products_imgs = new ProductsImgs;
+                $products_imgs->products_id = $item->id;
+                //翻譯：$products_imgs裡面的products_id欄位，會指向父層item的id
+                $products_imgs->img_url = $path;
+                //翻譯：$products_imgs裡面的img_url欄位，會指向多張圖片儲存的路徑
+                $products_imgs->save();
+            }
+        }
+        $item->update($request_data);
         return redirect('/home/products');
     }
 
@@ -118,7 +154,7 @@ class ProductsController extends Controller
         //回傳 資料庫儲存用的路徑格式
         return '/upload/' . $dir . '/' . $filename;
     }
-    public function ajax_delete_news_imgs(Request $request)
+    public function ajax_delete_products_imgs(Request $request)
     {
         $productsimgid = $request->productsimgid;
         $item = ProductsImgs::find($productsimgid);

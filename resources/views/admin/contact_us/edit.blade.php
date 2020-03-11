@@ -3,7 +3,7 @@
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
 <style>
-    .products_img_card .btn-danger {
+    .news_img_card .btn-danger {
         position: absolute;
         right: -5px;
         top: -15px;
@@ -18,21 +18,11 @@
 <div class="container">
     <h1>編輯消息</h1>
 
-    <form method="POST" action="/home/products/update/{{$products->id}}" enctype="multipart/form-data">
+    <form method="POST" action="/home/news/update/{{$news->id}}" enctype="multipart/form-data">
         @csrf
-        <div class="form-group col-md-4">
-            <label for="products_types">State</label>
-            <select id="products_types" class="form-control" name="products_types">
-                @foreach ($all_products as $item)
-                <option value="{{$item->type}}">{{$item->type}}</option>
-                @endforeach
-
-            </select>
-        </div>
-
         <div class="form-group">
             <label for="img">主要圖片</label>
-            <img class="img-fluid" width="250" src="{{$products->img}}" alt="">
+            <img class="img-fluid" width="250" src="{{$news->img}}" alt="">
         </div>
         <div class="form-group">
             <label for="title">重新上傳圖片(建議圖片尺寸寬400px x 高200px)：</label>
@@ -40,12 +30,12 @@
         </div>
         <div class="row">
             現有多張圖片
-            @foreach ($products->products_imgs as $item)
+            @foreach ($news->news_imgs as $item)
             <div class="col-2">
-                <div class="products_img_card" data-productsimgid="{{$item->id}}">
-                    <button type="button" class="btn btn-danger" data-productsimgid="{{$item->id}}">X</button>
+                <div class="news_img_card" data-newsimgid="{{$item->id}}">
+                    <button type="button" class="btn btn-danger" data-newsimgid="{{$item->id}}">X</button>
                     <img class="img-fluid" src="{{$item->img_url}}" alt="">
-                    <input class="form-control" type="text" value="{{$item->sort}}" onchange="ajax_post_sort(this,{{$item->id}})">
+                <input class="form-control" type="text" value="{{$item->sort}}" onchange="ajax_post_sort(this,{{$item->id}})">
                 </div>
             </div>
             @endforeach
@@ -53,29 +43,28 @@
 
         <div class="form-group">
             <label for="title">新增多張圖片組(建議圖片尺寸寬400px x 高200px)</label>
-            <input type="file" class="form-control" id="products_imgs" name="products_imgs[]" multiple>
+            <input type="file" class="form-control" id="news_imgs" name="news_imgs[]" multiple>
             {{-- 如果增加require屬性，則每次修改時一定要添加東西才行 --}}
         </div>
 
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{$products->title}}">
+            <input type="text" class="form-control" id="title" name="title" value="{{$news->title}}">
         </div>
 
         <div class="form-group">
             <label for="sort">權重(數字越大排越前面)</label>
-            <input type="number" min="0" class="form-control" id="sort" name="sort" value="{{$products->sort}}">
+            <input type="number" min="0" class="form-control" id="sort" name="sort" value="{{$news->sort}}">
         </div>
 
         <div class="form-group">
             <label for="content">請輸入說明內文：</label>
-            <textarea class="form-control" id="content" name="content" cols="30" rows="10">{!!$products->content!!}</textarea>
+            <textarea class="form-control" id="content" name="content" cols="30" rows="10">{!!$news->content!!}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">送出</button>
     </form>
 </div>
 @endsection
-
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
 <script>
@@ -85,17 +74,17 @@
         }
     });
 
-    $('.products_img_card .btn-danger').click(function(){
-        var productsimgid = this.getAttribute('data-productsimgid')
+    $('.news_img_card .btn-danger').click(function(){
+        var newsimgid = this.getAttribute('data-newsimgid')
 
         $.ajax({
-            url: "/home/ajax_delete_products_imgs",
+            url: "/home/ajax_delete_news_imgs",
             method: 'post',
             data: {
-            productsimgid: productsimgid,
+            newsimgid: newsimgid,
             },
             success: function(result){
-                $(`.products_img_card[data-productsimgid=${productsimgid}]`).remove();
+                $(`.news_img_card[data-newsimgid=${newsimgid}]`).remove();
             }
         });
     });
@@ -125,3 +114,4 @@
     // $('#content' *)
 </script>
 @endsection
+
