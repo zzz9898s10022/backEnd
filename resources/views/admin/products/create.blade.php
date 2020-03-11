@@ -16,7 +16,7 @@
 
             </select>
         </div>
-
+        {{-- 此格式為bootstrap表單裡面其中一個下拉格式 --}}
 
 
         <div class="form-group">

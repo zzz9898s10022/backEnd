@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     protected $table = 'products';
+    // 表示在資料庫中找到名稱為products的資料庫
     protected $fillable = [
         'products_types','img','title','content','sort'
     ];
