@@ -7,7 +7,7 @@ Route::get('/news/{id}', 'FrontController@news_detail'); //Content Page
 
 Route::get('/products', 'FrontController@products');
 Route::get('/contact_us', 'FrontController@contact_us');
-
+Route::get('/product_detail','FrontController@product_detail');
 Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'home'], function () {
@@ -58,5 +58,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'home'], function () {
     Route::post('ajax_delete_products_imgs', 'ProductsController@ajax_delete_products_imgs');
     Route::post('ajax_post_sort', 'ProductsController@ajax_post_sort');
     ////////////////////////聯絡我們///////////////////////////
-    
+
 });

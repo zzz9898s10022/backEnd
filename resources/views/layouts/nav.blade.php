@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{asset('assets/mobirise/css/mbr-additional.css')}}" type="text/css">
     {!! ReCaptcha::htmlScriptTagJsApi() !!}
 
-
+    @yield('css')
 </head>
 
 <body>
@@ -203,7 +203,7 @@
     <script src="{{asset('assets/gallery/script.js')}}"></script>
     <script src="{{asset('assets/slidervideo/script.js')}}"></script>
     <script src="{{asset('assets/formoid/formoid.min.js')}}"></script>
-
+    @yield('js')
 
 </body>
 

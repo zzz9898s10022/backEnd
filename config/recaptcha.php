@@ -19,7 +19,7 @@ return [
      * get site key @ www.google.com/recaptcha/admin
      *
      */
-    'api_site_key'                 => env('RECAPTCHA_SITE_KEY', '6LcnIeAUAAAAAKH6KDb1gHRHDU1nD8IIQSimTwcW'),
+    'api_site_key'                 => env('RECAPTCHA_SITE_KEY', ''),
                                         // 前面是我們給的值，逗點後面是預設值
 
     /**
@@ -28,7 +28,7 @@ return [
      * get secret key @ www.google.com/recaptcha/admin
      *
      */
-    'api_secret_key'               => env('RECAPTCHA_SECRET_KEY', '6LcnIeAUAAAAAJHHT0oP7plMLObCQR2GbCTqrp7b'),
+    'api_secret_key'               => env('RECAPTCHA_SECRET_KEY', ''),
 
     /**
      *

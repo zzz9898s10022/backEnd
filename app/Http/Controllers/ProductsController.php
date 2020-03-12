@@ -59,8 +59,7 @@ class ProductsController extends Controller
         $products = Products::find($id);
         $all_products = ProductTypes::all();
         // $products = Products::with("products_imgs")->find($id);
-        return view('admin/products/edit', compact('products'));
-
+        return view('admin/products/edit', compact('products','all_products'));
     }
     public function update(Request $request, $id)
     {
