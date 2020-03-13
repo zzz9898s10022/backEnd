@@ -1,6 +1,55 @@
 @extends('layouts/nav')
 @section('css')
 <style>
+    .product_info div:nth-child(1) {
+        width: 100%;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 48px;
+        color: #000;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product_info div:nth-child(2) {
+        font-size: 20px;
+        line-height: 24px;
+        color: #757575;
+    }
+
+    .product_info div:nth-child(3) {
+        color: #ff6700;
+        font-weight: 400;
+
+    }
+
+    .product_tip {
+        display: inline-block;
+        line-height: 17px;
+        font-size: 12px;
+        color: #757575;
+        font-weight: 400;
+        vertical-align: middle;
+    }
+
+    .product_card .capacity {
+        padding: 10px 20px;
+        width: 160px;
+        min-height: 58px;
+        height: 100%;
+        font-size: 16px;
+        line-height: 20px;
+        color: #757575;
+        text-align: center;
+        border: 1px solid #eee;
+        background-color: #fff;
+        user-select: none;
+        cursor: pointer;
+        position: relative
+    }
+
     .product_card .color {
         padding: 10px 20px;
         width: 160px;
@@ -30,9 +79,33 @@
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .1);
     }
 
+    .product_card .capacity.active {
+        color: #424242;
+        border-color: #ff6700;
+    }
+
     .product_card .color.active {
         color: #424242;
         border-color: #ff6700;
+    }
+
+    .product_total_items {
+        font-size: 16px;
+        color: #757575;
+    }
+
+    .product_total_list {
+        color: #ff6700;
+        font-size: 20px;
+        height: 36px;
+    }
+
+    button {
+        width: 50%;
+        font-size: 20px;
+        text-transform: uppercase;
+        background-color: #ff6700;
+        color: white;
     }
 </style>
 @endsection
@@ -40,7 +113,7 @@
 
 
 @section('content')
-<section class="engine"><a href="https://mobirise.info/x">css templates</a></section>
+<section class="engine"></section>
 <section class="features3 cid-rRF3umTBWU" id="features3-7" style="padding-top:100px">
     <div class="container">
         <div class="row">
@@ -60,12 +133,12 @@
                         <div class="row">
                             <div class="row-cols-4">
                                 <div class=></div>
-                                <div class="capacity">
+                                <div class="capacity" data-capacity="6GB+64GB">
                                     6GB+64GB
                                 </div>
                             </div>
                             <div class="row-cols-4">
-                                <div class="capacity">
+                                <div class="capacity" data-capacity="6GB+128GB">
                                     6GB+128GB
                                 </div>
                             </div>
@@ -104,7 +177,7 @@
                             <a id="plus" href="#">+</a>
                         </div>
                         <div class="product_total">
-                            <div>
+                            <div class="product_total_items">
                                 <span>Redmi Note 8 Pro</span>
                                 <span>冰翡翠</span>
                                 <span>6GB+64GB</span>
@@ -112,14 +185,14 @@
                                 <span>1</span>
                                 <span>NT$6,599</span>
                             </div>
-                            <div>
+                            <div class="product_total_list">
                                 <span>總計：</span>
                                 <span>NT$6,599</span>
                             </div>
                         </div>
                         {{-- <input type="text" name=""> --}}
-                        <input type="text" name="capacity" id="capacity">
-                        <input type="text" name="color" id="color" value="">
+                        <input type="text" name="capacity" id="capacity" value="" hidden>
+                        <input type="text" name="color" id="color" value="" hidden>
                         <button>立即購買</button>
                     </form>
                 </div>
@@ -132,6 +205,15 @@
 
 
 <script>
+    $('.product_capacity .capacity').click(function(){
+        $('*').removeClass('active');
+        $(this).addClass('active');
+
+        //get data attr value
+        var capacity = $(this).attr("data-capacity");
+
+        $('#capacity').val(capacity);
+    })
     $('.product_card .color').click(function(){
         $('*').removeClass('active');
         $(this).addClass('active');
