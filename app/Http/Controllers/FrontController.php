@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\News;
 
+use App\Products;
+use App\Contact_us;
+use App\Mail\OrderShipped;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -31,13 +35,27 @@ class FrontController extends Controller
         return view('front/news_detail',compact('news'));
     }
     public function products() {
-        $news_data = News::orderBy('sort', 'desc')->get();
+        $product_data = Products::orderBy('sort', 'desc')->get();
         return view('front/products');
     }
     public function contact_us() {
-        $news_data = News::orderBy('sort', 'desc')->get();
+
         return view('front/contact_us');
     }
+    public function contact_us_store(Request $request) {
+        $user_data =$request->all();
+
+        $content=Contact_us::create($user_data);
+
+        Mail::to('zzz9898s10022@gmail.com')->send(new OrderShipped($content));
+        // Mail::to($request->user())->send(new OrderShipped($content));
+        // 寄信
+        return redirect('/contact_us');
+        // return redirect跟return view不同，不需要再次從front開始傳回
+    }
+
+
+
     public function product_detail(){
         return view('front/product_detail');
     }

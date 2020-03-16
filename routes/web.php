@@ -7,7 +7,10 @@ Route::get('/news/{id}', 'FrontController@news_detail'); //Content Page
 
 Route::get('/products', 'FrontController@products');
 Route::get('/contact_us', 'FrontController@contact_us');
+Route::post('/contact_us_store', 'FrontController@contact_us_store');
 Route::get('/product_detail','FrontController@product_detail');
+
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'home'], function () {

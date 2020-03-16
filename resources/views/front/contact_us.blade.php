@@ -15,10 +15,14 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
+
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form action="/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="FP9Hr8UIGNyxHz95sE57A1uMgE/IZDzyd3WU/XZfJpIsX4aVHhgCUHUp0AYcZLIPHykiZIbqT4fMhScJjGX9FfcIIdwvXJikI4ZPYRVdTMwc40wxqssC4CxrJ1+JiaGb">
+                <form action="/contact_us_store" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                    @csrf
+                    <input type="hidden" name="email" data-form-email="true" value="">
                     <div class="row">
+
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
                         </div>
@@ -40,11 +44,11 @@
                             <label for="message-form1-4" class="form-control-label mbr-fonts-style display-7">訊息</label>
                             <textarea name="message" data-form-field="Message" class="form-control display-7" id="message-form1-4"></textarea>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 {!! htmlFormSnippet() !!}
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-12 input-group-btn align-center">
                             <button type="submit" class="btn btn-primary btn-form display-4">SEND FORM</button>
                         </div>
