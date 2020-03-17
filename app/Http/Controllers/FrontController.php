@@ -46,8 +46,8 @@ class FrontController extends Controller
         $user_data =$request->all();
 
         $content=Contact_us::create($user_data);
-
-        Mail::to('zzz9898s10022@gmail.com')->send(new OrderShipped($content));
+        // Mail::to($user_data->email)->send(new OrderShipped($content)); //寄信user
+        Mail::to('zzz9898s10022@gmail.com')->send(new OrderShipped($content));//寄信admin
         // Mail::to($request->user())->send(new OrderShipped($content));
         // 寄信
         return redirect('/contact_us');
